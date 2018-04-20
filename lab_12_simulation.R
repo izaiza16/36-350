@@ -24,3 +24,26 @@ model_select = function(covariates, responses, cutoff) {
   }
 }
 
+
+run_simulation = function(n_trials, n, p, cutoff) {
+  pvalues = c()
+  for (i in 1:n_trials) {
+    d = generate_data(n, p) 
+    pval = model_select(d$covariates, d$responses, cutoff)
+    pvalues = c(pvalues, pval)
+  }
+  return(pvalues)
+}
+
+par(mfrow=c(3,3))
+hist(run_simulation(100, 100, 10, 0.05))
+hist(run_simulation(100, 1000, 10, 0.05))
+hist(run_simulation(100, 10000, 10, 0.05))
+hist(run_simulation(100, 100, 20, 0.05))
+hist(run_simulation(100, 1000, 20, 0.05))
+hist(run_simulation(100, 10000, 20, 0.05))
+hist(run_simulation(100, 100, 50, 0.05))
+hist(run_simulation(100, 1000, 50, 0.05))
+hist(run_simulation(100, 10000, 50, 0.05))
+
+
