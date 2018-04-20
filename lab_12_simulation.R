@@ -1,5 +1,5 @@
 
-```{r}
+
 generate_data = function(n,p) {
   num = n
   per = p
@@ -7,5 +7,3 @@ generate_data = function(n,p) {
   v=rnorm(num, mean=0, sd=1)
   list(covariates = m, responses = v)
 }
-
-```
