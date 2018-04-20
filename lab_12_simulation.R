@@ -46,4 +46,18 @@ hist(run_simulation(100, 100, 50, 0.05))
 hist(run_simulation(100, 1000, 50, 0.05))
 hist(run_simulation(100, 10000, 50, 0.05))
 
+run_simulation = function(n_trials, n, p, cutoff) {
+  pvalues = c()
+  for (i in 1:n_trials) {
+    d = generate_data(n, p) 
+    pval = model_select(d$covariates, d$responses, cutoff)
+    pvalues = c(pvalues, pval)
+  }
+  write.csv(pvalues, file="my.pvalues.csv")
+}
+
+make_plot = function (datapath) {
+  pvalues = read.csv(datapath)
+  hist(pvalues)
+}
 
