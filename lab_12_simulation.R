@@ -1,4 +1,5 @@
 
+```{r}
 generate_data = function(n,p) {
   num = n
   per = p
@@ -7,3 +8,4 @@ generate_data = function(n,p) {
   list(covariates = m, responses = v)
 }
 
+```
