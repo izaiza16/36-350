@@ -1,3 +1,4 @@
+
 generate_data = function(n,p) {
   num = n
   per = p
